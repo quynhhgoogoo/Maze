@@ -1,5 +1,6 @@
 import turtle
 import random
+import sys
 
 #Set up
 win = turtle.Screen()
@@ -7,6 +8,9 @@ win.bgcolor("white")
 win.title("Maze game")
 win.setup(width = 700,height = 700)
 win.tracer(0)
+
+#Gold calculation
+gold = 0
 
 #Register shape
 turtle.register_shape("ghost_left.gif")
@@ -131,6 +135,23 @@ class Enemy(turtle.Turtle):
         self.goto(1000,1000)
         self.hideturtle()
 
+#Score
+score = turtle.Turtle()
+score.speed(0)
+score.color("black")
+score.hideturtle
+score.penup()
+score.goto(0,320)
+score.write("Player Gold : 0", align ="center", font =("Courier", 12, "normal"))
+
+#Game over
+gameover = turtle.Turtle()
+gameover.speed(0)
+gameover.color("black")
+gameover.hideturtle
+gameover.penup()
+gameover.goto(0,0)
+
 #Create Treasures
 treasures =[]
 
@@ -230,7 +251,10 @@ while True:
     for treasure in treasures:
         if player.collision(treasure):
             player.score = player.score + treasure.gold
-            print("Player Gold :{}".format(player.score))
+            gold = player.score
+            score.clear()
+            score.write("Player Gold :{}".format(gold), align ="center", font =("Courier", 12, "normal"))
+            #print("Player Gold :{}".format(player.score))
             #Hide treasure
             treasure.hideTreasure()
             #Remove treasure from treasures list
@@ -240,6 +264,8 @@ while True:
     for enemy in enemies:
         if player.collision(enemy):
             print("You die")
+            gameover.write("You die", align ="center", font =("Courier", 24, "normal"))
+            sys.exit()
         
     win.update()
 
