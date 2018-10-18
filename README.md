@@ -1,5 +1,5 @@
 # chippy-maze
-Chippy is a lovely white ghost. One day, she got lost into an mysterious mazes with a lot of creepy monsters.<br>
+Chippy is a lovely white ghost. One day, she got lost into an mysterious maze with a lot of creepy monsters.<br>
 Help Chippy collect enough treasures to escape from the maze.
 
 <img width="343" alt="capture" src="https://user-images.githubusercontent.com/26543302/47163736-4b806800-d2ff-11e8-8432-fb45c5351dc7.PNG"><img width="335" alt="capture1" src="https://user-images.githubusercontent.com/26543302/47163741-4de2c200-d2ff-11e8-85a6-a83a464d4c70.PNG">
