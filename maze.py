@@ -168,18 +168,18 @@ level1 = [
 "X  XXXXXXX  XXXXXX  XXXXX",
 "X       XX  XXXXXX  XXXXX",
 "XP       XX  XXX        XX",
-"XXXXXX  XX  XXX        XX",
+"XXXXXX  XX  XXX        TXX",
 "XXXXXX  XX  XXXXXX  XXXXX",
-"XXXXXX  XT    XXXX  XXXXX",
+"XXXXXX  XX    XXXX  XXXXX",
 "X  XXX        XXXX  EXXXX",
-"X  XXX  XXXXXXXXXXTXXXXXX",
+"X  XXX  XXXXXXXXXXXXXXXXX",
 "X         XXXXXXXXXXXXXXX",
 "X                EXXXXXXX",
-"XXXXXXXXXXXX     XXXXX  X",
+"XXXXXXXXXXXT     XXXXX  X",
 "XXXXXXXXXXXXXXX  XXXXX  X",
 "XXX  XXXXXXXXXX         X",
 "XXX                     X",
-"XXX         EXXXXXXXXXXXX",
+"XXT         EXXXXXXXXXXXX",
 "XXXXXXXXXX  XXXXXXXXXXXXX",
 "XXXXXXXXXX              X",
 "XXT   XXXXE             X",
@@ -258,12 +258,17 @@ while True:
             #Hide treasure
             treasure.hideTreasure()
             #Remove treasure from treasures list
-            treasures.remove(treasure)
+            #treasures.remove(treasure)
+
+            if (player.score)/100 == len(treasures):
+                print("You win")
+                gameover.write("You saved Chippy", align ="center", font =("Courier", 24, "normal"))
+                sys.exit()
 
     #If player meets enemy
     for enemy in enemies:
         if player.collision(enemy):
-            print("You die")
+            print(len(treasures))
             gameover.write("You die", align ="center", font =("Courier", 24, "normal"))
             sys.exit()
         
